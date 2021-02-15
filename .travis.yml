@@ -1,0 +1,26 @@
+language: python
+python:
+- '3.8'
+before_install:
+- export PYTHONPATH=$PYTHONPATH:$(pwd)
+install:
+- pip install pandas
+- pip install numpy >= 1.16.2
+- pip install scikit-learn == 0.23.0
+- pip install joblib
+- pip install codecov
+- pip install tox-travis
+- pip freeze
+script:
+- tox
+after_success:
+- codecov
+deploy:
+  provider: pypi
+  user: __token__
+  distributions: sdist bdist_wheel
+  skip_existing: true
+  on:
+    branch: master
+  password:
+    secure: TouqApBjPzdDycvmHmq41bdSdlRpx4KfKZ/n1xLURbh5IFNEc5zRCw2bz+7So1OzqfOlD2oZD+2jE4LPkpKZqhEmGU58HR9vAN2OStWb9vKp/P8tiQ6fAknN3814U1RSfMXB6vWjESnFLHo+IYbXthOIA/mOVZtXMfvJHmj/Ji4be/xbn2IGFF8k3XubbI7HTOoud7sQJjRskrAH3g7FD5/avvJUaCaGi6ft0eiXisvPcmUTk9yMpYr/whDqMLQNGu19Jthnb49xJuMnSDkUDvHP4OI4TTWEwKIqDP/UwKxuyqRRUgdioF2QnYaaVYa5PFEx29+jkSsa31UZ2HTtC9g2OabjhGT7xdI8i0/gFjMSitaHVIiJFVRaXzb0/nTfXe+x+WunoC/SC6x+IpPT3hJ7MNzFPbGHRbRKL04fG2ahT5/bDopVKlhKrenUuooKSCQ+Sjl9WGy2wP1xgSLL0d6FqqKJl1hu/Fj933p+Clau3YkjNcIg/Lu5sxNwJHda/cx4NkL/4f9RKsyT7hZkIS2JVW+uJ7WRT1UwsBKgfObMaNllxeD82rl12vinKU+C95Aj+nwkP9FMRWmFqu9fHeMDVwoQFM9DfWX/tRsUpYlJ1SAgdNPOVj45M2YRsjv6ndPdRjmoOwlhlJD6D55WIYnofKJeDkIFX/piFU68V+Q=

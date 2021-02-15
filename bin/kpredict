@@ -1,0 +1,8 @@
+#!/usr/bin/env python
+
+from kpredict import predict_from_file
+import sys
+
+value, formatted_value = predict_from_file(sys.argv[1])
+
+print("Predicted size : {}".format(formatted_value))
