@@ -11,7 +11,7 @@ setup(
     packages=find_packages(exclude=("linux-stable",)),
     package_data={"": ["*.joblib", "*.json"],},
     python_requires='>=3.8',
-    version="0.1.0",
+    version="0.1.1",
     install_requires=["scikit-learn == 0.23.0", "numpy >= 1.16.2", "pandas", "joblib"],
     description="",
     long_description=long_description,
