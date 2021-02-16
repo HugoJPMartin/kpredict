@@ -18,6 +18,7 @@ The straightest way to use it is to run the built-in script :
 kpredict .config
 ```
 
+Note : this module requires at elast Python 3.8 to work.
 
 ## Supported versions
 
